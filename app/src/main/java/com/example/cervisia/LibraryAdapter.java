@@ -24,6 +24,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
     public class LibraryViewHolder extends RecyclerView.ViewHolder{
         //All Views in the Holder
         private TextView beverageNameTextView;
+        private TextView beveragePriceTextView;
 
         public LibraryViewHolder(@NonNull View beverageRatingItemView) {
             //Master View
@@ -31,6 +32,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
 
             //Assign all View to the master View
             beverageNameTextView = beverageRatingItemView.findViewById(R.id.textViewBeverageNameLA);
+            beveragePriceTextView = beverageRatingItemView.findViewById(R.id.textViewBeveragePriceLA);
         }
     }
 
@@ -50,9 +52,11 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
 
             //Get the Content of the Model
             String beverageNameString = beverageRating.getBeverageName();
+            String beveragePriceString = beverageRating.getBeveragePrice();
 
             //Define Content of the holder
             holder.beverageNameTextView.setText(beverageNameString);
+            holder.beveragePriceTextView.setText(beveragePriceString);
         }
     }
 

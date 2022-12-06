@@ -4,10 +4,16 @@ public class BeverageRating {
 
     //Attributes
     private String beverageName;
+    private String beveragePrice;
 
-    //Constructor
+    //Constructors
     public BeverageRating(String beverageName) {
         this.beverageName = beverageName;
+    }
+
+    public BeverageRating(String beverageName, String beveragePrice) {
+        this.beverageName = beverageName;
+        this.beveragePrice = beveragePrice;
     }
 
     //Getter and Setter
@@ -17,5 +23,13 @@ public class BeverageRating {
 
     public void setBeverageName(String beverageName) {
         this.beverageName = beverageName;
+    }
+
+    public String getBeveragePrice() {
+        return beveragePrice;
+    }
+
+    public void setBeveragePrice(String beveragePrice) {
+        this.beveragePrice = beveragePrice;
     }
 }

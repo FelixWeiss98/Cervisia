@@ -32,9 +32,9 @@ public class LibraryActivity extends AppCompatActivity {
     }
 
     private void createDummyDate() {
-        beverageRatingArrayList.add(new BeverageRating("Guinness"));
-        beverageRatingArrayList.add(new BeverageRating("Bier"));
-        beverageRatingArrayList.add(new BeverageRating("Kaiser"));
+        beverageRatingArrayList.add(new BeverageRating("Guinness", "5,50€"));
+        beverageRatingArrayList.add(new BeverageRating("Pittinger", "1,50€"));
+        beverageRatingArrayList.add(new BeverageRating("Kaiser", "2,50€"));
     }
 
     private void setRecyclerViewAdapter() {
