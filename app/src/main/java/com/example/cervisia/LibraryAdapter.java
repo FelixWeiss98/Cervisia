@@ -1,5 +1,6 @@
 package com.example.cervisia;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,23 +9,29 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryViewHolder> {
 
-    //Arraylist of BeverageRatings
-    private ArrayList<BeverageRating> beverageRatingArrayList;
+    //Variables
+    private List<BeverageRating> beverageRatingList;
+    private Context context;
 
-    //Constructor
-    public LibraryAdapter(ArrayList<BeverageRating> beverageRatingArrayList) {
-        this.beverageRatingArrayList = beverageRatingArrayList;
+    //Constructors
+    public LibraryAdapter(Context context) {
+        this.context = context;
+    }
+
+    public void setBeverageRatingList(List<BeverageRating> beverageRatingList){
+        this.beverageRatingList = beverageRatingList;
+        notifyDataSetChanged();
     }
 
     //ViewHolder Class
     public class LibraryViewHolder extends RecyclerView.ViewHolder{
         //All Views in the Holder
-        private TextView beverageNameTextView;
-        private TextView beveragePriceTextView;
+        TextView beverageNameTextView;
+        TextView beveragePriceTextView;
 
         public LibraryViewHolder(@NonNull View beverageRatingItemView) {
             //Master View
@@ -47,21 +54,12 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
     //Set the Text inside of the List Item
     @Override
     public void onBindViewHolder(@NonNull LibraryViewHolder holder, int position) {
-        if (beverageRatingArrayList.get(position) != null) {
-            BeverageRating beverageRating = (BeverageRating) beverageRatingArrayList.get(position);
-
-            //Get the Content of the Model
-            String beverageNameString = beverageRating.getBeverageName();
-            String beveragePriceString = beverageRating.getBeveragePrice();
-
-            //Define Content of the holder
-            holder.beverageNameTextView.setText(beverageNameString);
-            holder.beveragePriceTextView.setText(beveragePriceString);
-        }
+        holder.beverageNameTextView.setText(beverageRatingList.get(position).beverageName);
+        holder.beveragePriceTextView.setText(beverageRatingList.get(position).beveragePrice);
     }
 
     @Override
     public int getItemCount() {
-        return beverageRatingArrayList.size();
+        return this.beverageRatingList.size();
     }
 }

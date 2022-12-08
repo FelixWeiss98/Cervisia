@@ -1,35 +1,20 @@
 package com.example.cervisia;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class BeverageRating {
 
     //Attributes
-    private String beverageName;
-    private String beveragePrice;
+    @PrimaryKey(autoGenerate = true)
+    public int beverageID;
 
-    //Constructors
-    public BeverageRating(String beverageName) {
-        this.beverageName = beverageName;
-    }
+    @ColumnInfo(name = "beverage_name")
+    public String beverageName;
 
-    public BeverageRating(String beverageName, String beveragePrice) {
-        this.beverageName = beverageName;
-        this.beveragePrice = beveragePrice;
-    }
-
-    //Getter and Setter
-    public String getBeverageName() {
-        return beverageName;
-    }
-
-    public void setBeverageName(String beverageName) {
-        this.beverageName = beverageName;
-    }
-
-    public String getBeveragePrice() {
-        return beveragePrice;
-    }
-
-    public void setBeveragePrice(String beveragePrice) {
-        this.beveragePrice = beveragePrice;
-    }
+    @ColumnInfo(name = "beverage_price")
+    public String beveragePrice;
 }

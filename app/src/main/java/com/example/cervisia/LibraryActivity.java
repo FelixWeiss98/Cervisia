@@ -4,55 +4,56 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class LibraryActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private ImageButton imageButton;
-    private ArrayList<BeverageRating> beverageRatingArrayList;
+    private LibraryAdapter libraryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        //Initialise Variables
-        beverageRatingArrayList = new ArrayList<>();
-
         //Methods
-        defineView();
+        defineMenuButton();
         setRecyclerViewAdapter();
-        createDummyDate();
+        loadBeverageRatings();
     }
 
-    private void createDummyDate() {
-        beverageRatingArrayList.add(new BeverageRating("Guinness", "5,50€"));
-        beverageRatingArrayList.add(new BeverageRating("Pittinger", "1,50€"));
-        beverageRatingArrayList.add(new BeverageRating("Kaiser", "2,50€"));
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        if (requestCode == 100) {
+            loadBeverageRatings();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void loadBeverageRatings() {
+        BeverageRatingDB db = BeverageRatingDB.getDatabaseInstance(this.getApplicationContext());
+        List<BeverageRating> beverageRatingList = db.beverageRatingDAO().getAll();
+        libraryAdapter.setBeverageRatingList(beverageRatingList);
     }
 
     private void setRecyclerViewAdapter() {
-        LibraryAdapter adapter = new LibraryAdapter(beverageRatingArrayList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-
-        //set LayoutManager ItemAnimator Adapter
-        recyclerView.setLayoutManager(layoutManager);
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewLibraryLA);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        libraryAdapter = new LibraryAdapter(this);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(libraryAdapter);
     }
 
-    private void defineView() {
-        recyclerView = findViewById(R.id.recyclerViewLibraryLA);
+    private void defineMenuButton() {
+        ImageButton imageButton;
         imageButton = findViewById(R.id.imageButtonMenuLA);
-
         imageButton.setOnClickListener(v -> {
-            Intent changeActivityIntent = new Intent(LibraryActivity.this, MenuActivity.class);
+            Intent changeActivityIntent = new Intent(LibraryActivity.this, AddBeverageRatingActivity.class);
             startActivity(changeActivityIntent);
         });
     }

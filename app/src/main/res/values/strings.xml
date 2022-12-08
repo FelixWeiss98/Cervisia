@@ -3,4 +3,10 @@
     <string name="buttonStartMA">Start</string>
     <string name="textViewHeaderLA">Library</string>
     <string name="imageButtonMenuLA">Menu</string>
+    <string name="textViewHeaderRA">Rating</string>
+    <string name="textViewNameRA">What is the name of your beverage?</string>
+    <string name="textViewPriceRA">How much did the beverage cost?</string>
+    <string name="editTextNameRA">Name</string>
+    <string name="editTextPriceRA">Price</string>
+    <string name="buttonCreateRA">Create New Rating</string>
 </resources>
