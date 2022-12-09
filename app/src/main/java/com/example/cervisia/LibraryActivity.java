@@ -53,7 +53,7 @@ public class LibraryActivity extends AppCompatActivity {
         ImageButton imageButton;
         imageButton = findViewById(R.id.imageButtonMenuLA);
         imageButton.setOnClickListener(v -> {
-            Intent changeActivityIntent = new Intent(LibraryActivity.this, AddBeverageRatingActivity.class);
+            Intent changeActivityIntent = new Intent(LibraryActivity.this, MenuActivity.class);
             startActivity(changeActivityIntent);
         });
     }

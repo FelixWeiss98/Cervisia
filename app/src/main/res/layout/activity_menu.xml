@@ -4,6 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#006064"
     tools:context=".MenuActivity">
+
+    <TextView
+        android:id="@+id/textViewHeaderMA"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#004D40"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/textViewHeaderMA"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewLibraryMA"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#004D40"
+        android:gravity="start|center_vertical"
+        android:padding="16dp"
+        android:text="@string/textViewHeaderLA"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDividerMA" />
+
+    <TextView
+        android:id="@+id/textViewRatingMA"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#004D40"
+        android:gravity="start|center_vertical"
+        android:padding="16dp"
+        android:text="@string/textViewHeaderRA"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDivider2MA" />
+
+    <TextView
+        android:id="@+id/textViewGalleryMA"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#004D40"
+        android:gravity="start|center_vertical"
+        android:padding="16dp"
+        android:text="@string/textViewRatingMA2"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDivider3MA" />
+
+    <ImageButton
+        android:id="@+id/imageButtonBackMA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="#004D40"
+        android:contentDescription="@string/imageButtonBackMA"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewHeaderMA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewHeaderMA"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        tools:ignore="SpeakableTextPresentCheck,RedundantDescriptionCheck" />
+
+    <View
+        android:id="@+id/viewDividerMA"
+        style="@style/Divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewHeaderMA" />
+
+    <View
+        android:id="@+id/viewDivider2MA"
+        style="@style/Divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewLibraryMA" />
+
+    <View
+        android:id="@+id/viewDivider3MA"
+        style="@style/Divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewRatingMA" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

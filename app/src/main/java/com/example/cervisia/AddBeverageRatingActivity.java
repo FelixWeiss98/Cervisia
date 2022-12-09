@@ -1,8 +1,10 @@
 package com.example.cervisia;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +14,8 @@ public class AddBeverageRatingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_beverage_rating);
+
+        defineMenuButton();
 
         EditText beverageName = findViewById(R.id.editTextNameRA);
         EditText beveragePrice = findViewById(R.id.editTextPriceRA);
@@ -28,5 +32,14 @@ public class AddBeverageRatingActivity extends AppCompatActivity {
         db.beverageRatingDAO().insertRating(beverageRating);
 
         finish();
+    }
+
+    private void defineMenuButton() {
+        ImageButton imageButton;
+        imageButton = findViewById(R.id.imageButtonMenuRA);
+        imageButton.setOnClickListener(v -> {
+            Intent changeActivityIntent = new Intent(AddBeverageRatingActivity.this, MenuActivity.class);
+            startActivity(changeActivityIntent);
+        });
     }
 }

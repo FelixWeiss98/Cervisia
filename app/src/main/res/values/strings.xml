@@ -9,4 +9,7 @@
     <string name="editTextNameRA">Name</string>
     <string name="editTextPriceRA">Price</string>
     <string name="buttonCreateRA">Create New Rating</string>
+    <string name="textViewHeaderMA">Menu</string>
+    <string name="imageButtonBackMA">Back Button</string>
+    <string name="textViewRatingMA2">Gallery</string>
 </resources>
