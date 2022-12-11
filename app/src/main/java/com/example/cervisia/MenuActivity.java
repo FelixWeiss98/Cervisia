@@ -38,7 +38,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Intent libraryIntent = new Intent(MenuActivity.this, LibraryActivity.class);
         Intent ratingIntent = new Intent(MenuActivity.this, AddBeverageRatingActivity.class);
-        Intent galleryIntent = new Intent(MenuActivity.this, LibraryActivity.class); //TODO
+        Intent galleryIntent = new Intent(MenuActivity.this, CameraActivity.class);
 
         switch (v.getId()){
             case R.id.imageButtonBackMA:
@@ -50,7 +50,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.textViewRatingMA:
                 startActivity(ratingIntent);
-                finish();
                 break;
             case R.id.textViewGalleryMA:
                 startActivity(galleryIntent);

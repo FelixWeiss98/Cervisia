@@ -11,7 +11,7 @@
     <string name="buttonCreateRA">Create New Rating</string>
     <string name="textViewHeaderMA">Menu</string>
     <string name="imageButtonBackMA">Back Button</string>
-    <string name="textViewRatingMA2">Gallery</string>
+    <string name="textViewRatingMA2">Camera</string>
     <string name="textViewRatingRA">What would you rate this beverage from 1 to 10?</string>
     <string name="textViewBeverageNameLA">Placeholder Name</string>
     <string name="textViewBeveragePriceLA">Placeholder Price</string>
@@ -20,4 +20,5 @@
     <string name="textViewRatingUA">Placeholder Rating</string>
     <string name="textViewPriceUA">Placeholder Price</string>
     <string name="textViewNameUA">Placeholder Name</string>
+    <string name="buttonCreateCA">Create Picture</string>
 </resources>
