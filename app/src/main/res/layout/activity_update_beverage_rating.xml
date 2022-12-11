@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#006064"
-    tools:context=".AddBeverageRatingActivity">
+    tools:context=".UpdateBeverageRatingActivity">
 
     <TextView
-        android:id="@+id/textViewHeaderRA"
+        android:id="@+id/textViewHeaderUA"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="#004D40"
@@ -19,21 +19,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButtonMenuRA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:backgroundTint="#004D40"
-        android:contentDescription="@string/imageButtonMenuLA"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewHeaderRA"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewHeaderRA"
-        app:srcCompat="@drawable/menu_button_image"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
     <TextView
-        android:id="@+id/textViewNameRA"
+        android:id="@+id/textViewNameUA"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,15 +28,15 @@
         android:layout_marginEnd="16dp"
         android:gravity="start|center_vertical"
         android:padding="8dp"
-        android:text="@string/textViewNameRA"
+        android:text="@string/textViewNameUA"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHeaderRA" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewHeaderUA" />
 
     <TextView
-        android:id="@+id/textViewPriceRA"
+        android:id="@+id/textViewPriceUA"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -57,15 +44,15 @@
         android:layout_marginEnd="16dp"
         android:gravity="start|center_vertical"
         android:padding="8dp"
-        android:text="@string/textViewPriceRA"
+        android:text="@string/textViewPriceUA"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNameRA" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameUA" />
 
     <TextView
-        android:id="@+id/textViewRatingRA"
+        android:id="@+id/textViewRatingUA"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -73,61 +60,42 @@
         android:layout_marginEnd="16dp"
         android:gravity="start|center_vertical"
         android:padding="8dp"
-        android:text="@string/textViewRatingRA"
+        android:text="@string/textViewRatingUA"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPriceRA" />
-
-    <EditText
-        android:id="@+id/editTextNameRA"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/editTextNameRA"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNameRA"
-        android:importantForAutofill="no" />
-
-    <EditText
-        android:id="@+id/editTextPriceRA"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/editTextPriceRA"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPriceRA" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPriceUA" />
 
     <Button
-        android:id="@+id/buttonCreateRA"
+        android:id="@+id/buttonDeleteUA"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
-        android:text="@string/buttonCreateRA"
+        android:text="@string/buttonDeleteUA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/buttonUpdateUA"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/buttonUpdateUA"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDeleteUA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <RatingBar
-        android:id="@+id/ratingBarBeverageRA"
+        android:id="@+id/ratingBarBeverageUA"
         style="@style/Widget.AppCompat.RatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -137,6 +105,20 @@
         android:progressTint="#827717"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRatingRA" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRatingUA"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButtonBackUA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="#004D40"
+        android:contentDescription="@string/imageButtonBackMA"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewHeaderUA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewHeaderUA"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        tools:ignore="SpeakableTextPresentCheck,RedundantDescriptionCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

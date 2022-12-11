@@ -1,9 +1,11 @@
 package com.example.cervisia;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,10 +18,12 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
     //Variables
     private List<BeverageRating> beverageRatingList;
     private Context context;
+    private ItemClickListener itemClickListener;
 
     //Constructors
-    public LibraryAdapter(Context context) {
+    public LibraryAdapter(Context context, ItemClickListener itemClickListener) {
         this.context = context;
+        this.itemClickListener = itemClickListener;
     }
 
     public void setBeverageRatingList(List<BeverageRating> beverageRatingList){
@@ -32,6 +36,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
         //All Views in the Holder
         TextView beverageNameTextView;
         TextView beveragePriceTextView;
+        RatingBar beverageRankRatingBar;
 
         public LibraryViewHolder(@NonNull View beverageRatingItemView) {
             //Master View
@@ -40,6 +45,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
             //Assign all View to the master View
             beverageNameTextView = beverageRatingItemView.findViewById(R.id.textViewBeverageNameLA);
             beveragePriceTextView = beverageRatingItemView.findViewById(R.id.textViewBeveragePriceLA);
+            beverageRankRatingBar = beverageRatingItemView.findViewById(R.id.ratingBarBeverageLA);
         }
     }
 
@@ -56,10 +62,17 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
     public void onBindViewHolder(@NonNull LibraryViewHolder holder, int position) {
         holder.beverageNameTextView.setText(beverageRatingList.get(position).beverageName);
         holder.beveragePriceTextView.setText(beverageRatingList.get(position).beveragePrice);
+        holder.beverageRankRatingBar.setRating(beverageRatingList.get(position).beverageRank);
+
+        holder.itemView.setOnClickListener(v -> itemClickListener.onItemClick(beverageRatingList.get(position)));
     }
 
     @Override
     public int getItemCount() {
         return this.beverageRatingList.size();
+    }
+
+    public interface ItemClickListener{
+        void onItemClick(BeverageRating beverageRating);
     }
 }

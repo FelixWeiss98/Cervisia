@@ -17,4 +17,7 @@ public class BeverageRating {
 
     @ColumnInfo(name = "beverage_price")
     public String beveragePrice;
+
+    @ColumnInfo(name = "beverage_rating")
+    public float beverageRank;
 }

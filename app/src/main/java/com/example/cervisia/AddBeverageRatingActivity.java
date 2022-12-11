@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RatingBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,15 +21,18 @@ public class AddBeverageRatingActivity extends AppCompatActivity {
         EditText beverageName = findViewById(R.id.editTextNameRA);
         EditText beveragePrice = findViewById(R.id.editTextPriceRA);
         Button createButton = findViewById(R.id.buttonCreateRA);
-        createButton.setOnClickListener(v -> createNewRating(beverageName.getText().toString(), beveragePrice.getText().toString() + " €"));
+        RatingBar beverageRank = findViewById(R.id.ratingBarBeverageRA);
+        createButton.setOnClickListener(v -> createNewRating(beverageName.getText().toString(), beveragePrice.getText().toString() + " €", beverageRank.getRating() * 2));
     }
 
-    private void createNewRating(String beverageName, String beveragePrice){
+    private void createNewRating(String beverageName, String beveragePrice, float beverageRank){
         BeverageRatingDB db = BeverageRatingDB.getDatabaseInstance(this.getApplicationContext());
 
         BeverageRating beverageRating = new BeverageRating();
         beverageRating.beverageName = beverageName;
         beverageRating.beveragePrice = beveragePrice;
+        beverageRating.beverageRank = beverageRank;
+
         db.beverageRatingDAO().insertRating(beverageRating);
 
         finish();

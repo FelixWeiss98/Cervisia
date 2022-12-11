@@ -44,9 +44,15 @@ public class LibraryActivity extends AppCompatActivity {
     private void setRecyclerViewAdapter() {
         RecyclerView recyclerView = findViewById(R.id.recyclerViewLibraryLA);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        libraryAdapter = new LibraryAdapter(this);
+        libraryAdapter = new LibraryAdapter(this, beverageRating -> showRating(beverageRating.beverageName));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(libraryAdapter);
+    }
+
+    private void showRating(String name) {
+        Intent updateRatingIntent = new Intent(LibraryActivity.this, UpdateBeverageRatingActivity.class);
+        updateRatingIntent.putExtra("beverageName", name);
+        startActivity(updateRatingIntent);
     }
 
     private void defineMenuButton() {
