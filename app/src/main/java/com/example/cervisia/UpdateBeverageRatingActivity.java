@@ -57,18 +57,15 @@ public class UpdateBeverageRatingActivity extends AppCompatActivity {
         updateButton = findViewById(R.id.buttonUpdateUA);
         BeverageRatingDB db = BeverageRatingDB.getDatabaseInstance(this.getApplicationContext());
 
-        updateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                List<BeverageRating> beverageRatingList1 = db.beverageRatingDAO().getRating(name);
-                BeverageRating updateBR = beverageRatingList1.get(0);
-                String beveragePrice = updateBR.beveragePrice;
-                String beverageName = updateBR.beverageName;
-                rankRatingBar = findViewById(R.id.ratingBarBeverageUA);
+        updateButton.setOnClickListener(v -> {
+            List<BeverageRating> beverageRatingList1 = db.beverageRatingDAO().getRating(name);
+            BeverageRating updateBR = beverageRatingList1.get(0);
+            String beveragePrice = updateBR.beveragePrice;
+            String beverageName = updateBR.beverageName;
+            rankRatingBar = findViewById(R.id.ratingBarBeverageUA);
 
-                createNewRating(beverageName, beveragePrice + " €", rankRatingBar.getRating() * 2);
-                db.beverageRatingDAO().deleteRating(updateBR);
-            }
+            createNewRating(beverageName, beveragePrice, rankRatingBar.getRating() * 2);
+            db.beverageRatingDAO().deleteRating(updateBR);
         });
     }
 
