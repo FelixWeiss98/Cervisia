@@ -11,7 +11,7 @@
         android:layout_height="0dp"
         android:background="#01579B"
         app:layout_constraintBottom_toBottomOf="@+id/ratingBarBeverageLA"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBeveragePriceLA"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBeverageTypeLA"
         app:layout_constraintStart_toStartOf="@+id/textViewBeverageNameLA"
         app:layout_constraintTop_toTopOf="@+id/textViewBeveragePriceLA" />
 
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewBeveragePriceLA"
+        android:id="@+id/textViewBeverageTypeLA"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
@@ -41,11 +41,26 @@
         android:gravity="start|center_vertical"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="@string/textViewBeveragePriceLA"
+        android:text="@string/textViewBeverageTypeLA"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewBeveragePriceLA"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewBeveragePriceLA"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:gravity="start|center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/textViewBeveragePriceLA"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewBeverageNameLA"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,12 +70,13 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:numStars="10"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:progressBackgroundTint="#827717"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewBeverageNameLA" />
 

@@ -36,6 +36,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
         //All Views in the Holder
         TextView beverageNameTextView;
         TextView beveragePriceTextView;
+        TextView beverageTypeTextView;
         RatingBar beverageRankRatingBar;
 
         public LibraryViewHolder(@NonNull View beverageRatingItemView) {
@@ -46,6 +47,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
             beverageNameTextView = beverageRatingItemView.findViewById(R.id.textViewBeverageNameLA);
             beveragePriceTextView = beverageRatingItemView.findViewById(R.id.textViewBeveragePriceLA);
             beverageRankRatingBar = beverageRatingItemView.findViewById(R.id.ratingBarBeverageLA);
+            beverageTypeTextView = beverageRatingItemView.findViewById(R.id.textViewBeverageTypeLA);
         }
     }
 
@@ -63,6 +65,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
         holder.beverageNameTextView.setText(beverageRatingList.get(position).beverageName);
         holder.beveragePriceTextView.setText(beverageRatingList.get(position).beveragePrice);
         holder.beverageRankRatingBar.setRating(beverageRatingList.get(position).beverageRank);
+        holder.beverageTypeTextView.setText(beverageRatingList.get(position).beverageType);
 
         holder.itemView.setOnClickListener(v -> itemClickListener.onItemClick(beverageRatingList.get(position)));
     }

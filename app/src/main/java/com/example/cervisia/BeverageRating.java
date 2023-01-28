@@ -20,4 +20,7 @@ public class BeverageRating {
 
     @ColumnInfo(name = "beverage_rating")
     public float beverageRank;
+
+    @ColumnInfo(name = "beverage_type")
+    public String beverageType;
 }
