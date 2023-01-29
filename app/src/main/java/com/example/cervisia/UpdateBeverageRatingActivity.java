@@ -18,6 +18,7 @@ public class UpdateBeverageRatingActivity extends AppCompatActivity {
     TextView nameTextView;
     TextView priceTextView;
     TextView ratingTextView;
+    TextView typeTextView;
     RatingBar rankRatingBar;
     Button deleteButton;
     Button updateButton;
@@ -25,6 +26,7 @@ public class UpdateBeverageRatingActivity extends AppCompatActivity {
     String nameText;
     String priceText;
     String ratingText;
+    String typeText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class UpdateBeverageRatingActivity extends AppCompatActivity {
         deleteRating(info);
     }
 
+    //Deletes the old rating
+    //Used when deleting and updating a rating
     private void deleteRating(String name) {
         deleteButton = findViewById(R.id.buttonDeleteUA);
         BeverageRatingDB db = BeverageRatingDB.getDatabaseInstance(this.getApplicationContext());
@@ -62,26 +66,31 @@ public class UpdateBeverageRatingActivity extends AppCompatActivity {
             BeverageRating updateBR = beverageRatingList1.get(0);
             String beveragePrice = updateBR.beveragePrice;
             String beverageName = updateBR.beverageName;
+            String beverageType = updateBR.beverageType;
             rankRatingBar = findViewById(R.id.ratingBarBeverageUA);
 
-            createNewRating(beverageName, beveragePrice, rankRatingBar.getRating() * 2);
+            createNewRating(beverageName, beveragePrice, rankRatingBar.getRating() * 2, beverageType);
             db.beverageRatingDAO().deleteRating(updateBR);
         });
     }
 
-    private void createNewRating(String beverageName, String beveragePrice, float beverageRank){
+    //Instead of updating the Database a new column gets created while updating information
+    private void createNewRating(String beverageName, String beveragePrice, float beverageRank, String beverageType){
         BeverageRatingDB db = BeverageRatingDB.getDatabaseInstance(this.getApplicationContext());
 
         BeverageRating beverageRating = new BeverageRating();
         beverageRating.beverageName = beverageName;
         beverageRating.beveragePrice = beveragePrice;
         beverageRating.beverageRank = beverageRank;
+        beverageRating.beverageType = beverageType;
 
         db.beverageRatingDAO().insertRating(beverageRating);
 
         finish();
     }
 
+    //Creates a new List of BeverageRating which holds only the selected item
+    //Show the information about the list item
     @SuppressLint("SetTextI18n")
     private void setTextViews(String name) {
         BeverageRatingDB db = BeverageRatingDB.getDatabaseInstance(this.getApplicationContext());
@@ -91,14 +100,17 @@ public class UpdateBeverageRatingActivity extends AppCompatActivity {
         priceText = beverageRatingList.get(0).beveragePrice;
         float ratingFloat = beverageRatingList.get(0).beverageRank;
         ratingText = Float.toString(ratingFloat);
+        typeText = beverageRatingList.get(0).beverageType;
 
         nameTextView = findViewById(R.id.textViewNameUA);
         priceTextView = findViewById(R.id.textViewPriceUA);
         ratingTextView = findViewById(R.id.textViewRatingUA);
+        typeTextView = findViewById(R.id.textViewTypeUA);
 
         nameTextView.setText("The Name of your Beverage is: " + nameText);
         priceTextView.setText("The Price of your Beverage is: " + priceText);
         ratingTextView.setText("The Rating of your Beverage is: " + ratingText);
+        typeTextView.setText("The Type of your Beverage is: " + typeText);
     }
 
     private void initBackButton() {

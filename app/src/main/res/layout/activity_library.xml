@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#006064"
+    android:background="#003300"
     tools:context=".LibraryActivity">
 
     <TextView
         android:id="@+id/textViewHeaderLA"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="#004D40"
+        android:background="#BFBF00"
         android:gravity="center"
         android:text="@string/textViewHeaderLA"
         android:textSize="20sp"
@@ -24,13 +24,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:backgroundTint="#004D40"
+        android:backgroundTint="#9F9F00"
+        android:contentDescription="@string/imageButtonMenuLA"
         app:layout_constraintBottom_toBottomOf="@+id/textViewHeaderLA"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textViewHeaderLA"
         app:srcCompat="@drawable/menu_button_image"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
-        android:contentDescription="@string/imageButtonMenuLA" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewLibraryLA"

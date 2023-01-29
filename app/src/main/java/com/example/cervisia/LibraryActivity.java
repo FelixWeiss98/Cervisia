@@ -28,6 +28,14 @@ public class LibraryActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        //Methods
+        loadBeverageRatings();
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         if (requestCode == 100) {
             loadBeverageRatings();
